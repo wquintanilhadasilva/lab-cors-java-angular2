@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>REST Tester</title>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+    	
+    	<h2>Hello World!</h2>
+    
+        <div id="logMsgDiv"></div>
+        
+        <button>Processar</button>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+        <script type="text/javascript">
+            var $ = jQuery.noConflict();
+
+            var server = 'http://nrwwedsonsi:8080/TestFilters/api/demo/';
+
+            $.ajax( {
+                cache: false,
+                crossDomain: true,
+                dataType: "json",
+                url: server + 'get-method/',
+                type: "GET",
+                success: function( jsonObj, textStatus, xhr ) {
+                    var htmlContent = $( "#logMsgDiv" ).html( ) + "<p>" + jsonObj.message + "</p>";
+                    $( "#logMsgDiv" ).html( htmlContent );
+                },
+                error: function( xhr, textStatus, errorThrown ) {
+                    console.log( "HTTP Status: " + xhr.status );
+                    console.log( "Error textStatus: " + textStatus );
+                    console.log( "Error thrown: " + errorThrown );
+                }
+            } );
+
+            $.ajax( {
+                cache: false,
+                crossDomain: true,
+                dataType: "json",
+                url: server + 'post-method/',
+                type: "POST",
+                success: function( jsonObj, textStatus, xhr ) {
+                    var htmlContent = $( "#logMsgDiv" ).html( ) + "<p>" + jsonObj.message + "</p>";
+                    $( "#logMsgDiv" ).html( htmlContent );
+                },
+                error: function( xhr, textStatus, errorThrown ) {
+                    console.log( "HTTP Status: " + xhr.status );
+                    console.log( "Error textStatus: " + textStatus );
+                    console.log( "Error thrown: " + errorThrown );
+                }
+            } );
+
+            $.ajax( {
+                cache: false,
+                crossDomain: true,
+                dataType: "json",
+                url: server + 'put-method/',
+                type: "PUT",
+                success: function( jsonObj, textStatus, xhr ) {
+                    var htmlContent = $( "#logMsgDiv" ).html( ) + "<p>" + jsonObj.message + "</p>";
+                    $( "#logMsgDiv" ).html( htmlContent );
+                },
+                error: function( xhr, textStatus, errorThrown ) {
+                    console.log( "HTTP Status: " + xhr.status );
+                    console.log( "Error textStatus: " + textStatus );
+                    console.log( "Error thrown: " + errorThrown );
+                }
+            } );
+
+            $.ajax( {
+                cache: false,
+                crossDomain: true,
+                dataType: "json",
+                url: server + 'delete-method/',
+                type: "DELETE",
+                success: function( jsonObj, textStatus, xhr ) {
+                    var htmlContent = $( "#logMsgDiv" ).html( ) + "<p>" + jsonObj.message + "</p>";
+                    $( "#logMsgDiv" ).html( htmlContent );
+                },
+                error: function( xhr, textStatus, errorThrown ) {
+                    console.log( "HTTP Status: " + xhr.status );
+                    console.log( "Error textStatus: " + textStatus );
+                    console.log( "Error thrown: " + errorThrown );
+                }
+            } ); 
+        </script>
+        
+    </body>
+</html>
